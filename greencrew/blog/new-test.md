@@ -6,6 +6,8 @@ Tags: Incident Response, Chaos Engineering, SRE, Reliability
 
 Description: Turn incident response exercises into traceable evidence by linking objectives to scenario injects, observed decisions, technical checks, findings, and verified follow-up work.
 
+Date: 2026-09-30
+
 An attendance list proves that people attended an exercise. It does not prove they could declare an incident, reach the right decision-maker, restore the service, or communicate through a failed primary channel.
 
 Design the evidence at the same time as the exercise. NIST SP 800-84 describes the design, development, conduct, and evaluation of tests, training, and exercises for IT plans. AWS recommends regular game days involving the people and procedures used in real events. Neither makes an arbitrary screenshot folder sufficient evidence for every audit. The packet below is a practical structure to adapt to your actual control objectives. [NIST SP 800-84](https://csrc.nist.gov/pubs/sp/800/84/final), [AWS: Conduct Game Days Regularly](https://docs.aws.amazon.com/wellarchitected/latest/framework/rel_testing_resiliency_game_days_resiliency.html)
