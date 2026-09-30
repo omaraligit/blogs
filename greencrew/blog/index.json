@@ -1,17 +1,1 @@
-[
-  {
-    "slug": "example-blog",
-    "filename": "example-blog.md",
-    "title": "How to Produce Audit Evidence from Incident Tabletop Tests and Game Days",
-    "description": "Turn incident response exercises into traceable evidence by linking objectives to scenario injects, observed decisions, technical checks, findings, and verified follow-up work.",
-    "tags": [
-      "Incident Response",
-      "Chaos Engineering",
-      "SRE",
-      "Reliability"
-    ],
-    "author": "nawazdhandala",
-    "authorUrl": "https://www.github.com/nawazdhandala",
-    "date": "2026-09-30"
-  }
-]
+[]
