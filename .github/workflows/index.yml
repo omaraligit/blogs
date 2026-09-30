@@ -1,20 +1,46 @@
-name: Update post index
+name: Blog index
+
 on:
   push:
     branches: [main]
+    paths: ["greencrew/blog/*.md"]
+  workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   index:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build index.json
+
+      - name: Build greencrew/blog/index.json
         run: |
-          ls posts/*.md | xargs -n1 basename | sed 's/\.md$//' | jq -R . | jq -s . > posts/index.json
-      - name: Commit if changed
+          node -e '
+          const fs = require("fs");
+          const dir = "greencrew/blog";
+          const posts = fs.readdirSync(dir).filter(f => f.endsWith(".md")).map(file => {
+            const raw = fs.readFileSync(dir + "/" + file, "utf8");
+            const get = k => (raw.match(new RegExp("^" + k + ":\\s*(.*)$", "im")) || [])[1]?.trim() || "";
+            const author = get("Author").match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+            return {
+              slug: file.replace(/\.md$/, ""),
+              filename: file,
+              title: (raw.match(/^# (.+)$/m) || [])[1]?.trim() || file,
+              description: get("Description"),
+              tags: get("Tags").split(",").map(t => t.trim()).filter(Boolean),
+              author: author ? author[1] : get("Author"),
+              authorUrl: author ? author[2] : null,
+              date: get("Date") || null
+            };
+          });
+          fs.writeFileSync(dir + "/index.json", JSON.stringify(posts, null, 2) + "\n");
+          '
+
+      - name: Commit index
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add greencrew/blog/index.json
-          git diff --staged --quiet || (git commit -m "Update post index" && git push)
+          git diff --staged --quiet || (git commit -m "chore: update blog index" && git push)
