@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "slug": "how-to-get-website-downtime-alerts-discord-slack-telegram",
+    "filename": "how-to-get-website-downtime-alerts-discord-slack-telegram.md",
+    "title": "How to Get Website Downtime Alerts on Discord, Slack, and Telegram",
+    "description": "To get website downtime alerts on Discord, Slack, or Telegram, create a Discord or Slack incoming webhook (or a Telegram bot token and chat ID), test it with a single curl command, then connect it to an external uptime monitor that checks your site every minute. Includes setup steps, curl tests, and alerting best practices.",
+    "tags": [
+      "Uptime Monitoring",
+      "Discord",
+      "Slack",
+      "Telegram",
+      "Alerts",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-09-30"
+  },
+  {
+    "slug": "how-to-install-lets-encrypt-ssl-nginx-certbot",
+    "filename": "how-to-install-lets-encrypt-ssl-nginx-certbot.md",
+    "title": "How to Install a Free Let's Encrypt SSL Certificate on Nginx with Certbot (and Auto-Renew It)",
+    "description": "Install Certbot with snap, run sudo certbot --nginx -d example.com -d www.example.com, then confirm auto-renewal with sudo certbot renew --dry-run. A step-by-step Ubuntu guide with renewal troubleshooting, rate limits, wildcard certificates, and SSL expiry monitoring.",
+    "tags": [
+      "Let's Encrypt",
+      "SSL",
+      "Nginx",
+      "Certbot",
+      "HTTPS"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-09-30"
+  },
+  {
+    "slug": "how-to-set-up-nginx-reverse-proxy",
+    "filename": "how-to-set-up-nginx-reverse-proxy.md",
+    "title": "How to Set Up Nginx as a Reverse Proxy (proxy_pass Config, Headers, and Health Checks)",
+    "description": "To set up Nginx as a reverse proxy, add a server block with proxy_pass http://127.0.0.1:3000, forward the Host and X-Forwarded-* headers, run nginx -t, and reload. Includes a copy-paste config, WebSocket support, timeouts, a health check endpoint, and uptime monitoring.",
+    "tags": [
+      "Nginx",
+      "Reverse Proxy",
+      "DevOps",
+      "Linux",
+      "Web Server"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-09-30"
+  }
+]
