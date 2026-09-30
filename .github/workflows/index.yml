@@ -2,7 +2,6 @@ name: Update post index
 on:
   push:
     branches: [main]
-    paths: ["posts/*.md"]
 permissions:
   contents: write
 jobs:
