@@ -22,7 +22,7 @@ This is the first post on our blog. If you can read this on `/blog/hello-world`,
 
     npm run dev
 
-## A table
+## A table v1
 
 | Feature | Status |
 | ------- | ------ |
