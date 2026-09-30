@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "helo-page",
+    "filename": "helo-page.md",
+    "title": "Hello World",
+    "description": "A short intro post to confirm the blog is wired up correctly.",
+    "tags": [
+      "Announcements",
+      "Product"
+    ],
+    "author": "your-github-username",
+    "authorUrl": "https://www.github.com/your-github-username",
+    "date": "2026-09-30"
+  }
+]
