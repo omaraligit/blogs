@@ -1,6 +1,6 @@
 # How to Set Up Nginx Load Balancing with Failover (upstream, least_conn, and Health Checks)
 
-Author: [oaitbenali](https://www.github.com/oaitbenali)
+Author: [greencrew](https://greencrew.space/blog)
 
 Tags: Nginx, Load Balancing, High Availability, DevOps, Reliability
 

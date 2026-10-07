@@ -1,6 +1,6 @@
 # How to Enable Gzip and Brotli Compression in Nginx (and Verify It Works)
 
-Author: [oaitbenali](https://www.github.com/oaitbenali)
+Author: [greencrew](https://greencrew.space/blog)
 
 Tags: Nginx, Performance, Gzip, Brotli, Web Performance
 

@@ -1,6 +1,6 @@
 # How to Set Up Rate Limiting in Nginx (limit_req, burst, and 429 Responses)
 
-Author: [oaitbenali](https://www.github.com/oaitbenali)
+Author: [greencrew](https://greencrew.space/blog)
 
 Tags: Nginx, Rate Limiting, Security, DevOps, API
 
