@@ -1,5 +1,21 @@
 [
   {
+    "slug": "how-to-enable-gzip-and-brotli-compression-in-nginx",
+    "filename": "how-to-enable-gzip-and-brotli-compression-in-nginx.md",
+    "title": "How to Enable Gzip and Brotli Compression in Nginx (and Verify It Works)",
+    "description": "Enable gzip in Nginx with gzip on, gzip_comp_level 5, gzip_proxied any, gzip_vary on, and a gzip_types list for CSS, JavaScript, JSON, and SVG. Add Brotli with the ngx_brotli module, then verify with curl -H \"Accept-Encoding: br\" -I. A copy-paste config, a compression level table, and fixes for when compression doesn't work.",
+    "tags": [
+      "Nginx",
+      "Performance",
+      "Gzip",
+      "Brotli",
+      "Web Performance"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-07"
+  },
+  {
     "slug": "how-to-get-website-downtime-alerts-discord-slack-telegram",
     "filename": "how-to-get-website-downtime-alerts-discord-slack-telegram.md",
     "title": "How to Get Website Downtime Alerts on Discord, Slack, and Telegram",
@@ -33,6 +49,22 @@
     "date": "2026-09-30"
   },
   {
+    "slug": "how-to-set-up-nginx-load-balancing-with-failover",
+    "filename": "how-to-set-up-nginx-load-balancing-with-failover.md",
+    "title": "How to Set Up Nginx Load Balancing with Failover (upstream, least_conn, and Health Checks)",
+    "description": "To load balance with Nginx, list your backend servers in an upstream block, choose a method such as least_conn, set max_fails=3 fail_timeout=30s for passive health checks, and send traffic with proxy_pass http://backend. Covers failover with backup servers, sticky sessions, retries, and monitoring each backend.",
+    "tags": [
+      "Nginx",
+      "Load Balancing",
+      "High Availability",
+      "DevOps",
+      "Reliability"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-07"
+  },
+  {
     "slug": "how-to-set-up-nginx-reverse-proxy",
     "filename": "how-to-set-up-nginx-reverse-proxy.md",
     "title": "How to Set Up Nginx as a Reverse Proxy (proxy_pass Config, Headers, and Health Checks)",
@@ -47,5 +79,21 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-09-30"
+  },
+  {
+    "slug": "how-to-set-up-rate-limiting-in-nginx",
+    "filename": "how-to-set-up-rate-limiting-in-nginx.md",
+    "title": "How to Set Up Rate Limiting in Nginx (limit_req, burst, and 429 Responses)",
+    "description": "To rate limit in Nginx, define a zone with limit_req_zone $binary_remote_addr zone=perip:10m rate=10r/s in the http block, apply it with limit_req zone=perip burst=20 nodelay, and return 429 with limit_req_status 429. Copy-paste configs for login pages, APIs, allowlists, connection limits, and safe testing.",
+    "tags": [
+      "Nginx",
+      "Rate Limiting",
+      "Security",
+      "DevOps",
+      "API"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-07"
   }
 ]
