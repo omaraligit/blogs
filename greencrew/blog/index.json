@@ -1,5 +1,21 @@
 [
   {
+    "slug": "how-to-add-security-headers-in-nginx",
+    "filename": "how-to-add-security-headers-in-nginx.md",
+    "title": "How to Add Security Headers in Nginx (HSTS, CSP, X-Frame-Options, and More)",
+    "description": "To add security headers in Nginx, use add_header with the always flag, for example add_header Strict-Transport-Security \"max-age=31536000; includeSubDomains\" always; put them in a shared snippet so add_header inheritance doesn't drop them, then reload and verify with curl -I. This guide covers HSTS, Content-Security-Policy, X-Content-Type-Options, frame protection, Referrer-Policy, and Permissions-Policy.",
+    "tags": [
+      "Nginx",
+      "Security",
+      "HTTP Headers",
+      "TLS",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-08"
+  },
+  {
     "slug": "how-to-enable-gzip-and-brotli-compression-in-nginx",
     "filename": "how-to-enable-gzip-and-brotli-compression-in-nginx.md",
     "title": "How to Enable Gzip and Brotli Compression in Nginx (and Verify It Works)",
@@ -14,6 +30,22 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-07"
+  },
+  {
+    "slug": "how-to-fix-502-bad-gateway-nginx",
+    "filename": "how-to-fix-502-bad-gateway-nginx.md",
+    "title": "How to Fix 502 Bad Gateway in Nginx (Error Log Messages, Causes, and Fixes)",
+    "description": "To fix a 502 Bad Gateway in Nginx, run sudo tail -n 50 /var/log/nginx/error.log, find the upstream error (connection refused, permission denied, upstream sent too big header), and fix the backend, port, socket, or buffer setting it points to. This guide maps every common error log message to its cause and a copy-paste fix.",
+    "tags": [
+      "Nginx",
+      "Troubleshooting",
+      "Reverse Proxy",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-08"
   },
   {
     "slug": "how-to-get-website-downtime-alerts-discord-slack-telegram",
@@ -63,6 +95,22 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-07"
+  },
+  {
+    "slug": "how-to-set-up-nginx-proxy-cache",
+    "filename": "how-to-set-up-nginx-proxy-cache.md",
+    "title": "How to Set Up Nginx Caching with proxy_cache (Config, Cache Bypass, and Serving Stale Content)",
+    "description": "To set up Nginx caching, define a cache with proxy_cache_path /var/cache/nginx/app levels=1:2 keys_zone=app_cache:10m max_size=1g inactive=60m; in the http block, then add proxy_cache app_cache; and proxy_cache_valid 200 10m; to your proxied location. This guide covers the full config, cache bypass for logged-in users, microcaching, serving stale content when the backend is down, and purging.",
+    "tags": [
+      "Nginx",
+      "Caching",
+      "Performance",
+      "Reverse Proxy",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-08"
   },
   {
     "slug": "how-to-set-up-nginx-reverse-proxy",
