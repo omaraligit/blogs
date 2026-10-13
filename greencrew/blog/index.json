@@ -1,5 +1,21 @@
 [
   {
+    "slug": "how-to-ab-test-with-nginx-split-clients",
+    "filename": "how-to-ab-test-with-nginx-split-clients.md",
+    "title": "How to A/B Test with Nginx (split_clients, Sticky Cookies, and Variant Logging)",
+    "description": "To A/B test with Nginx, use split_clients \"${remote_addr}${http_user_agent}\" $variant { 50% \"a\"; * \"b\"; } in the http block, then route each variant to a different root or upstream and log $variant in your access log. This guide covers sticky cookies, targeting users by device, country, or language, measuring conversions from logs, and avoiding SEO and caching mistakes.",
+    "tags": [
+      "Nginx",
+      "A/B Testing",
+      "Analytics",
+      "Traffic Splitting",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-13"
+  },
+  {
     "slug": "how-to-add-security-headers-in-nginx",
     "filename": "how-to-add-security-headers-in-nginx.md",
     "title": "How to Add Security Headers in Nginx (HSTS, CSP, X-Frame-Options, and More)",
@@ -14,6 +30,38 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-08"
+  },
+  {
+    "slug": "how-to-configure-php-fpm-with-nginx",
+    "filename": "how-to-configure-php-fpm-with-nginx.md",
+    "title": "How to Configure PHP-FPM with Nginx (fastcgi_pass, Unix Socket, and Pool Tuning)",
+    "description": "To run PHP with Nginx, install php-fpm, then add a location ~ \\.php$ block that includes snippets/fastcgi-php.conf and sets fastcgi_pass unix:/run/php/php-fpm.sock. This guide covers the full server block, pool settings like pm.max_children, the status page, and fixes for 502, 504, and \"File not found\" errors.",
+    "tags": [
+      "Nginx",
+      "PHP-FPM",
+      "PHP",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-13"
+  },
+  {
+    "slug": "how-to-create-a-self-signed-ssl-certificate-for-nginx",
+    "filename": "how-to-create-a-self-signed-ssl-certificate-for-nginx.md",
+    "title": "How to Create a Self-Signed SSL Certificate for Nginx (openssl Command, Nginx Config, and Trusting It)",
+    "description": "To create a self-signed certificate for Nginx, run openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx-selfsigned.key -out nginx-selfsigned.crt with a subjectAltName, then point ssl_certificate and ssl_certificate_key at the files in a listen 443 ssl server block. This guide covers the full config, the HTTP-to-HTTPS redirect, trusting the certificate on Linux and macOS, mkcert, and fixing browser errors.",
+    "tags": [
+      "Nginx",
+      "SSL",
+      "TLS",
+      "OpenSSL",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-13"
   },
   {
     "slug": "how-to-enable-gzip-and-brotli-compression-in-nginx",
@@ -79,6 +127,22 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-09-30"
+  },
+  {
+    "slug": "how-to-install-nginx-on-ubuntu",
+    "filename": "how-to-install-nginx-on-ubuntu.md",
+    "title": "How to Install Nginx on Ubuntu (apt install nginx, UFW Firewall, and Your First Server Block)",
+    "description": "To install Nginx on Ubuntu, run sudo apt update && sudo apt install nginx, allow web traffic with sudo ufw allow 'Nginx Full', and check it with systemctl status nginx and curl -I http://localhost. This guide also covers server blocks, the config file layout, the official nginx.org repository, service commands, and common install errors.",
+    "tags": [
+      "Nginx",
+      "Ubuntu",
+      "Linux",
+      "Web Server",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-13"
   },
   {
     "slug": "how-to-set-up-nginx-load-balancing-with-failover",
