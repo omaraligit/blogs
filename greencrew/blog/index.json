@@ -64,6 +64,38 @@
     "date": "2026-10-13"
   },
   {
+    "slug": "how-to-deploy-nodejs-app-with-pm2-and-nginx",
+    "filename": "how-to-deploy-nodejs-app-with-pm2-and-nginx.md",
+    "title": "How to Deploy a Node.js App in Production with PM2 and Nginx (Ubuntu, Startup Script, and Zero-Downtime Reloads)",
+    "description": "To run a Node.js app in production, start it with pm2 start app.js --name myapp, make it survive reboots with pm2 startup and pm2 save, and put Nginx in front with proxy_pass http://127.0.0.1:3000. This guide covers installing Node.js, an ecosystem.config.js file, cluster mode, zero-downtime reloads, logs, and HTTPS.",
+    "tags": [
+      "Nginx",
+      "Node.js",
+      "PM2",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-15"
+  },
+  {
+    "slug": "how-to-deploy-react-app-with-nginx",
+    "filename": "how-to-deploy-react-app-with-nginx.md",
+    "title": "How to Deploy a React App with Nginx on Ubuntu (try_files for React Router, Caching, and API Proxy)",
+    "description": "To deploy a React app with Nginx, run npm run build, copy the build folder (dist for Vite) to /var/www/your-app, and add a server block with root pointing at it and try_files $uri $uri/ /index.html so React Router routes don't return 404. This guide covers the full config, caching hashed assets, proxying /api to a backend, subfolder deploys, and HTTPS.",
+    "tags": [
+      "Nginx",
+      "React",
+      "Vite",
+      "Frontend",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-15"
+  },
+  {
     "slug": "how-to-enable-gzip-and-brotli-compression-in-nginx",
     "filename": "how-to-enable-gzip-and-brotli-compression-in-nginx.md",
     "title": "How to Enable Gzip and Brotli Compression in Nginx (and Verify It Works)",
@@ -96,6 +128,22 @@
     "date": "2026-10-08"
   },
   {
+    "slug": "how-to-fix-err-ssl-protocol-error-nginx",
+    "filename": "how-to-fix-err-ssl-protocol-error-nginx.md",
+    "title": "How to Fix ERR_SSL_PROTOCOL_ERROR in Nginx (\"This Site Can't Provide a Secure Connection\")",
+    "description": "ERR_SSL_PROTOCOL_ERROR usually means the server answered an HTTPS request with plain HTTP, most often because the Nginx server block says listen 443 without the ssl parameter. Change it to listen 443 ssl, point ssl_certificate and ssl_certificate_key at a valid certificate, and run nginx -t && systemctl reload nginx. This guide covers every server-side and client-side cause, how to diagnose each with curl and openssl, and how to prevent it.",
+    "tags": [
+      "Nginx",
+      "SSL",
+      "TLS",
+      "Troubleshooting",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-15"
+  },
+  {
     "slug": "how-to-get-website-downtime-alerts-discord-slack-telegram",
     "filename": "how-to-get-website-downtime-alerts-discord-slack-telegram.md",
     "title": "How to Get Website Downtime Alerts on Discord, Slack, and Telegram",
@@ -111,6 +159,23 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-09-30"
+  },
+  {
+    "slug": "how-to-install-lemp-stack-on-ubuntu",
+    "filename": "how-to-install-lemp-stack-on-ubuntu.md",
+    "title": "How to Install a LEMP Stack on Ubuntu (Nginx, MySQL, and PHP-FPM Step by Step)",
+    "description": "To install a LEMP stack on Ubuntu, run sudo apt install nginx mysql-server php-fpm php-mysql, secure MySQL with mysql_secure_installation, and point an Nginx server block's fastcgi_pass at the PHP-FPM socket. This guide covers every step, creating a database user, testing the PHP to MySQL connection, and fixing common LEMP errors.",
+    "tags": [
+      "Nginx",
+      "MySQL",
+      "PHP",
+      "LEMP",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-15"
   },
   {
     "slug": "how-to-install-lets-encrypt-ssl-nginx-certbot",
