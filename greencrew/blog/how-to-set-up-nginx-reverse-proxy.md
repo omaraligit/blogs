@@ -199,7 +199,7 @@ A reverse proxy on plain HTTP is only halfway done. Get a free certificate from 
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-For the full walkthrough, including renewal testing and rate limits, see our guide on [how to install a free Let's Encrypt SSL certificate on Nginx](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot).
+For the full walkthrough, including renewal testing and rate limits, see our guide on [how to install a free Let's Encrypt SSL certificate on Nginx](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot).
 
 ## Troubleshooting Common Nginx Reverse Proxy Errors
 

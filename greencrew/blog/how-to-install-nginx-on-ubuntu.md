@@ -210,10 +210,10 @@ Replace `packages/ubuntu` with `packages/mainline/ubuntu` for the mainline branc
 
 A fresh install serves plain HTTP. For a production site, work through these in order:
 
-1. **Add HTTPS:** [install a free Let's Encrypt certificate with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot). For a server without a public domain, [create a self-signed certificate](/blog/how-to-create-a-self-signed-ssl-certificate-for-nginx).
-2. **Proxy to your app:** [set up Nginx as a reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) for Node.js, Python, or Go, or [configure PHP-FPM](/blog/how-to-configure-php-fpm-with-nginx) for PHP.
-3. **Harden it:** [add security headers](/blog/how-to-add-security-headers-in-nginx) and [rate limiting](/blog/how-to-set-up-rate-limiting-in-nginx).
-4. **Speed it up:** [enable Gzip and Brotli compression](/blog/how-to-enable-gzip-and-brotli-compression-in-nginx).
+1. **Add HTTPS:** [install a free Let's Encrypt certificate with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot). For a server without a public domain, [create a self-signed certificate](https://greencrew.space/blog/how-to-create-a-self-signed-ssl-certificate-for-nginx).
+2. **Proxy to your app:** [set up Nginx as a reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) for Node.js, Python, or Go, or [configure PHP-FPM](https://greencrew.space/blog/how-to-configure-php-fpm-with-nginx) for PHP.
+3. **Harden it:** [add security headers](https://greencrew.space/blog/how-to-add-security-headers-in-nginx) and [rate limiting](https://greencrew.space/blog/how-to-set-up-rate-limiting-in-nginx).
+4. **Speed it up:** [enable Gzip and Brotli compression](https://greencrew.space/blog/how-to-enable-gzip-and-brotli-compression-in-nginx).
 
 Also hide the exact version from error pages and the `Server` header by adding this to the `http` block in `nginx.conf`:
 
@@ -245,7 +245,7 @@ sudo journalctl -u nginx --no-pager -n 50
 
 Once your site is live, you need to know when it stops responding, whether that's a bad config reload, a full disk, or the server going away. Checking from the server itself won't help when the server is the thing that's down.
 
-[GreenCrew](https://greencrew.space) checks your site over HTTP from outside your network and alerts you on Discord, Slack, or Telegram when it goes down. You also get a public status page to share with your users. Add a check as soon as your first server block is live, and see [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) for the full setup.
+[GreenCrew](https://greencrew.space) checks your site over HTTP from outside your network and alerts you on Discord, Slack, or Telegram when it goes down. You also get a public status page to share with your users. Add a check as soon as your first server block is live, and see [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) for the full setup.
 
 ## Frequently Asked Questions
 

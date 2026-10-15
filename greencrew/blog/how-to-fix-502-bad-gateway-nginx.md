@@ -12,7 +12,7 @@ Date: 2026-10-08
 
 ## What Does 502 Bad Gateway Mean in Nginx?
 
-When Nginx acts as a [reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy), it sits between the browser and your application. A 502 is Nginx telling the client: "I'm working, but the server behind me failed." The problem is almost never Nginx itself. It's the connection to the upstream, or what the upstream sent back.
+When Nginx acts as a [reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy), it sits between the browser and your application. A 502 is Nginx telling the client: "I'm working, but the server behind me failed." The problem is almost never Nginx itself. It's the connection to the upstream, or what the upstream sent back.
 
 That makes the Nginx error log the single most useful tool here. Nginx records exactly why the upstream request failed, along with the upstream address it tried.
 
@@ -26,7 +26,7 @@ These three get confused often, and each points to a different fix:
 | `503 Service Unavailable` | Nginx (or the app) is refusing to serve right now | Rate limiting with `limit_req_status 503` (the default), maintenance mode, app overload |
 | `504 Gateway Timeout` | The upstream accepted the connection but didn't answer in time | Slow query, `proxy_read_timeout` too low, upstream unreachable on the network |
 
-If you're seeing 504s instead, the fix is usually timeouts or a slow endpoint, not a dead process. If you're seeing 503s on busy endpoints, check your [Nginx rate limiting](/blog/how-to-set-up-rate-limiting-in-nginx) config first.
+If you're seeing 504s instead, the fix is usually timeouts or a slow endpoint, not a dead process. If you're seeing 503s on busy endpoints, check your [Nginx rate limiting](https://greencrew.space/blog/how-to-set-up-rate-limiting-in-nginx) config first.
 
 ## Step 1: Read the Nginx Error Log
 
@@ -178,7 +178,7 @@ sudo dmesg -T | grep -i -E "killed process|out of memory"
 
 ## Step 7: Fix Load Balancer and HTTPS Upstream 502s
 
-`no live upstreams` means Nginx has marked every server in the `upstream` block as unavailable after repeated failures. Fix the backends first. Then check that `max_fails` and `fail_timeout` aren't so aggressive that one slow second takes everything out. Our [Nginx load balancing with failover](/blog/how-to-set-up-nginx-load-balancing-with-failover) guide covers those settings in detail.
+`no live upstreams` means Nginx has marked every server in the `upstream` block as unavailable after repeated failures. Fix the backends first. Then check that `max_fails` and `fail_timeout` aren't so aggressive that one slow second takes everything out. Our [Nginx load balancing with failover](https://greencrew.space/blog/how-to-set-up-nginx-load-balancing-with-failover) guide covers those settings in detail.
 
 If you proxy to an HTTPS backend, such as a managed platform or another load balancer, Nginx doesn't send SNI by default. Many hosts reject the handshake without it:
 
@@ -227,7 +227,7 @@ Set up these monitors:
 | HTTP status | `https://example.com/healthz` | App crashed or database unreachable, even if the homepage is cached |
 | HTTP status | Each critical route (`/login`, `/api/health`) | Route-specific crashes and oversized headers |
 
-[GreenCrew](https://greencrew.space) runs HTTP checks against these URLs from outside your server. It alerts you on Discord, Slack, or Telegram when one starts returning 502, and gives you a public status page so users know you're on it. If you haven't wired up chat alerts yet, see [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) runs HTTP checks against these URLs from outside your server. It alerts you on Discord, Slack, or Telegram when one starts returning 502, and gives you a public status page so users know you're on it. If you haven't wired up chat alerts yet, see [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 

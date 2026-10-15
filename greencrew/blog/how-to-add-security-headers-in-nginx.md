@@ -109,7 +109,7 @@ Apply it:
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-If you don't have HTTPS set up yet, do that first. Our guide on [installing a free Let's Encrypt certificate on Nginx with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) takes about five minutes. HSTS on a site without working HTTPS will lock visitors out.
+If you don't have HTTPS set up yet, do that first. Our guide on [installing a free Let's Encrypt certificate on Nginx with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) takes about five minutes. HSTS on a site without working HTTPS will lock visitors out.
 
 ## Step 3: Roll Out HSTS Safely
 
@@ -213,7 +213,7 @@ After each change, check more than the status code:
 | HTTP status | Every subdomain covered by `includeSubDomains` | Subdomains without valid HTTPS |
 | Keyword | Text that only appears once the page renders | Pages that return 200 but are broken |
 
-[GreenCrew](https://greencrew.space) runs these HTTP checks from outside your network and alerts you on Discord, Slack, or Telegram when one fails. Your public status page shows users what's happening if a change goes wrong. If you're also tuning other parts of the stack, like [compression](/blog/how-to-enable-gzip-and-brotli-compression-in-nginx) or [rate limiting](/blog/how-to-set-up-rate-limiting-in-nginx), the same monitors will catch regressions there.
+[GreenCrew](https://greencrew.space) runs these HTTP checks from outside your network and alerts you on Discord, Slack, or Telegram when one fails. Your public status page shows users what's happening if a change goes wrong. If you're also tuning other parts of the stack, like [compression](https://greencrew.space/blog/how-to-enable-gzip-and-brotli-compression-in-nginx) or [rate limiting](https://greencrew.space/blog/how-to-set-up-rate-limiting-in-nginx), the same monitors will catch regressions there.
 
 ## Frequently Asked Questions
 

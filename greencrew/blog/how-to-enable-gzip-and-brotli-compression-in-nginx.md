@@ -200,7 +200,7 @@ Compressing HTTPS responses that include both secrets (CSRF tokens, session data
 
 ## Make Sure Faster Doesn't Mean Broken
 
-Compression changes affect every response, and mistakes show up in unexpected places. A misconfigured `gzip_static` can serve stale `.gz` files after a deploy, a double-compressed API response breaks clients, and a bad module install stops Nginx from reloading. Monitor your key pages and API endpoints from outside so you catch problems right after the change ships. [GreenCrew](https://greencrew.space) checks your URLs continuously and alerts you on Discord, Slack, or Telegram when a check fails. Pair it with a hardened [Nginx reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) and HTTPS from [Let's Encrypt](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot), which you need anyway for browsers to accept Brotli.
+Compression changes affect every response, and mistakes show up in unexpected places. A misconfigured `gzip_static` can serve stale `.gz` files after a deploy, a double-compressed API response breaks clients, and a bad module install stops Nginx from reloading. Monitor your key pages and API endpoints from outside so you catch problems right after the change ships. [GreenCrew](https://greencrew.space) checks your URLs continuously and alerts you on Discord, Slack, or Telegram when a check fails. Pair it with a hardened [Nginx reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) and HTTPS from [Let's Encrypt](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot), which you need anyway for browsers to accept Brotli.
 
 ## Frequently Asked Questions
 

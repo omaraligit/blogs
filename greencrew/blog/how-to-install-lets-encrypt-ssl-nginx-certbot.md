@@ -33,7 +33,7 @@ In short, a cron job you set up two years ago and never checked is now a real ou
 | Port 80 open to the internet (for HTTP-01 validation) | `sudo ufw status` |
 | Root or sudo access | `sudo -v` |
 
-If you haven't configured Nginx yet, follow [how to set up Nginx as a reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) first. Certbot needs an existing server block whose `server_name` matches the domain you request.
+If you haven't configured Nginx yet, follow [how to set up Nginx as a reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) first. Certbot needs an existing server block whose `server_name` matches the domain you request.
 
 ## Step 1: Install Certbot
 
@@ -203,7 +203,7 @@ echo "$DOMAIN expires in $DAYS days"
 [ "$DAYS" -lt 14 ] && exit 1 || exit 0
 ```
 
-**2. External monitoring** of the HTTPS URL. [GreenCrew](https://greencrew.space) checks your site from outside your server, and an expired or invalid certificate makes the HTTPS check fail. You get a Discord, Slack, or Telegram alert right away, and your public status page shows the incident to users automatically. That also covers the case the cron script can't: the server itself being offline. To wire up the alert channels, see [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+**2. External monitoring** of the HTTPS URL. [GreenCrew](https://greencrew.space) checks your site from outside your server, and an expired or invalid certificate makes the HTTPS check fail. You get a Discord, Slack, or Telegram alert right away, and your public status page shows the incident to users automatically. That also covers the case the cron script can't: the server itself being offline. To wire up the alert channels, see [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 

@@ -58,7 +58,7 @@ curl -I http://localhost
 # Server: nginx/...
 ```
 
-For the details (UFW profiles, the `sites-available` layout, and managing the service), see [how to install Nginx on Ubuntu](/blog/how-to-install-nginx-on-ubuntu).
+For the details (UFW profiles, the `sites-available` layout, and managing the service), see [how to install Nginx on Ubuntu](https://greencrew.space/blog/how-to-install-nginx-on-ubuntu).
 
 ## Step 2: Install and Secure MySQL
 
@@ -179,7 +179,7 @@ sudo nginx -t && sudo systemctl reload nginx
 | `location ~ /\.(?!well-known)` | Hides `.env`, `.git`, and other dotfiles but still allows Let's Encrypt challenges |
 | `client_max_body_size` | Max upload size; the Nginx default is 1 MB |
 
-If you raise `client_max_body_size`, raise `upload_max_filesize` and `post_max_size` in `/etc/php/8.3/fpm/php.ini` to match. Pool sizing (`pm.max_children`) and FastCGI timeouts are covered in [how to configure PHP-FPM with Nginx](/blog/how-to-configure-php-fpm-with-nginx).
+If you raise `client_max_body_size`, raise `upload_max_filesize` and `post_max_size` in `/etc/php/8.3/fpm/php.ini` to match. Pool sizing (`pm.max_children`) and FastCGI timeouts are covered in [how to configure PHP-FPM with Nginx](https://greencrew.space/blog/how-to-configure-php-fpm-with-nginx).
 
 ## Step 5: Test PHP and the MySQL Connection
 
@@ -223,7 +223,7 @@ sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-The full walkthrough, including auto-renewal checks, is in [how to install a Let's Encrypt SSL certificate on Nginx with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot). After that, add [security headers](/blog/how-to-add-security-headers-in-nginx) and [Gzip/Brotli compression](/blog/how-to-enable-gzip-and-brotli-compression-in-nginx).
+The full walkthrough, including auto-renewal checks, is in [how to install a Let's Encrypt SSL certificate on Nginx with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot). After that, add [security headers](https://greencrew.space/blog/how-to-add-security-headers-in-nginx) and [Gzip/Brotli compression](https://greencrew.space/blog/how-to-enable-gzip-and-brotli-compression-in-nginx).
 
 ## LEMP File and Service Cheat Sheet
 
@@ -253,13 +253,13 @@ The full walkthrough, including auto-renewal checks, is in [how to install a Let
 | Port 80 already in use | Apache was installed alongside | `sudo systemctl disable --now apache2` |
 | Blank white page | PHP fatal error with `display_errors` off | Check `/var/log/nginx/error.log` and the PHP-FPM log |
 
-For gateway errors in depth, see [how to fix 502 Bad Gateway in Nginx](/blog/how-to-fix-502-bad-gateway-nginx).
+For gateway errors in depth, see [how to fix 502 Bad Gateway in Nginx](https://greencrew.space/blog/how-to-fix-502-bad-gateway-nginx).
 
 ## Monitor Your LEMP Stack
 
 A LEMP stack has three services that can fail independently. Nginx can stay up while PHP-FPM runs out of workers or MySQL crashes after running out of memory, and the static homepage keeps loading while every dynamic page errors.
 
-[GreenCrew](https://greencrew.space) runs HTTP uptime checks against your site from outside your network and alerts you on Discord, Slack, or Telegram when it stops responding correctly, with a public status page you can share with users. Point the check at a URL that runs PHP *and* queries the database (a lightweight `/health` route works well). That way the check fails when any layer fails. See [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) to set it up.
+[GreenCrew](https://greencrew.space) runs HTTP uptime checks against your site from outside your network and alerts you on Discord, Slack, or Telegram when it stops responding correctly, with a public status page you can share with users. Point the check at a URL that runs PHP *and* queries the database (a lightweight `/health` route works well). That way the check fails when any layer fails. See [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) to set it up.
 
 ## Frequently Asked Questions
 
@@ -281,4 +281,4 @@ Yes. Give each site its own server block, web root, database, and MySQL user. Fo
 
 ## Conclusion
 
-Installing a LEMP stack on Ubuntu comes down to four packages, one hardening script, one database user, and one server block. Test the full chain (Nginx → PHP-FPM → MySQL) with a real connection, not just `phpinfo()`, then add HTTPS. Tune the [PHP-FPM pool](/blog/how-to-configure-php-fpm-with-nginx) once you have real traffic, and let [GreenCrew](https://greencrew.space) watch the site from the outside so a stopped PHP-FPM or a crashed database reaches you as an alert, not as a complaint from a user.
+Installing a LEMP stack on Ubuntu comes down to four packages, one hardening script, one database user, and one server block. Test the full chain (Nginx → PHP-FPM → MySQL) with a real connection, not just `phpinfo()`, then add HTTPS. Tune the [PHP-FPM pool](https://greencrew.space/blog/how-to-configure-php-fpm-with-nginx) once you have real traffic, and let [GreenCrew](https://greencrew.space) watch the site from the outside so a stopped PHP-FPM or a crashed database reaches you as an alert, not as a complaint from a user.

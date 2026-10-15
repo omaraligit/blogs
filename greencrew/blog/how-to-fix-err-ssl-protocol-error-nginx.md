@@ -138,7 +138,7 @@ or, at request time:
 no "ssl_certificate" is defined in server listening on SSL port while SSL handshaking
 ```
 
-The usual culprit is a **default server** on 443 (for example a catch-all `server_name _;` block) with no certificate. Clients whose SNI doesn't match another block, or that send no SNI, land there and the handshake fails. Give the catch-all a certificate, even a [self-signed one](/blog/how-to-create-a-self-signed-ssl-certificate-for-nginx), or reject those handshakes outright (supported since Nginx 1.19.4):
+The usual culprit is a **default server** on 443 (for example a catch-all `server_name _;` block) with no certificate. Clients whose SNI doesn't match another block, or that send no SNI, land there and the handshake fails. Give the catch-all a certificate, even a [self-signed one](https://greencrew.space/blog/how-to-create-a-self-signed-ssl-certificate-for-nginx), or reject those handshakes outright (supported since Nginx 1.19.4):
 
 ```nginx
 server {
@@ -157,7 +157,7 @@ sudo openssl x509 -noout -modulus -in /etc/letsencrypt/live/example.com/fullchai
 sudo openssl rsa  -noout -modulus -in /etc/letsencrypt/live/example.com/privkey.pem  | openssl md5
 ```
 
-The two hashes must match. (This modulus comparison works for RSA keys. Certbot issues ECDSA keys by default in recent versions, so for those compare `openssl x509 -noout -pubkey` with `openssl pkey -pubout` instead.) If you don't have a certificate yet, follow [how to install Let's Encrypt SSL on Nginx with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot).
+The two hashes must match. (This modulus comparison works for RSA keys. Certbot issues ECDSA keys by default in recent versions, so for those compare `openssl x509 -noout -pubkey` with `openssl pkey -pubout` instead.) If you don't have a certificate yet, follow [how to install Let's Encrypt SSL on Nginx with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot).
 
 ## Step 4: Check What's in Front of Nginx
 
@@ -170,7 +170,7 @@ If Nginx is correct when tested on the server (`curl -vI --resolve example.com:4
 | Another service on 443 | Apache, a VPN, or a panel bound to 443 first | `sudo ss -tlnp | grep :443`, stop or move it |
 | Router port forwarding | WAN 443 forwarded to LAN port 80 | Forward 443 → 443 |
 | CDN/proxy in TCP passthrough | Origin isn't speaking TLS on the port the CDN connects to | Enable TLS on the origin or change the CDN's origin port |
-| Reverse proxy to an app | `proxy_pass https://...` to an app that only speaks HTTP | Use `proxy_pass http://127.0.0.1:PORT` (see [reverse proxy guide](/blog/how-to-set-up-nginx-reverse-proxy)) |
+| Reverse proxy to an app | `proxy_pass https://...` to an app that only speaks HTTP | Use `proxy_pass http://127.0.0.1:PORT` (see [reverse proxy guide](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy)) |
 
 The last row shows up in the Nginx error log as `SSL_do_handshake() failed ... wrong version number while SSL handshaking to upstream`, and the browser usually gets a 502 rather than ERR_SSL_PROTOCOL_ERROR. It's the same mistake in the other direction.
 
@@ -205,7 +205,7 @@ If curl and openssl succeed from several networks, the server is fine and the pr
 | Wrong system clock | Usually certificate date errors, sometimes generic handshake failures | Enable automatic time sync |
 | Stale cached state | Error persists after a fix | Try an incognito window, clear the SSL state, restart the browser |
 
-Also be careful with [HSTS headers](/blog/how-to-add-security-headers-in-nginx). Once browsers have seen `Strict-Transport-Security`, they refuse plain HTTP for that domain for the whole `max-age`. A broken TLS config then means the site is completely unreachable for returning visitors, with no HTTP fallback.
+Also be careful with [HSTS headers](https://greencrew.space/blog/how-to-add-security-headers-in-nginx). Once browsers have seen `Strict-Transport-Security`, they refuse plain HTTP for that domain for the whole `max-age`. A broken TLS config then means the site is completely unreachable for returning visitors, with no HTTP fallback.
 
 ## ERR_SSL_PROTOCOL_ERROR Troubleshooting Table
 
@@ -225,7 +225,7 @@ Also be careful with [HSTS headers](/blog/how-to-add-security-headers-in-nginx).
 
 TLS problems usually come from a change: a new server block, a Certbot run that edited the wrong file, a Docker port mapping, a load balancer tweak. They're also easy to miss when you're testing from a machine that has cached state, or over HTTP.
 
-[GreenCrew](https://greencrew.space) runs HTTP uptime checks from outside your network. Point a check at your `https://` URL, and when a handshake failure makes the site unreachable, you get an alert on Discord, Slack, or Telegram, while your public status page keeps users informed. Add the check before you change TLS config, not after. See [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) runs HTTP uptime checks from outside your network. Point a check at your `https://` URL, and when a handshake failure makes the site unreachable, you get an alert on Discord, Slack, or Telegram, while your public status page keeps users informed. Add the check before you change TLS config, not after. See [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 
@@ -239,7 +239,7 @@ Usually the server. Test with `curl -vI https://yourdomain` and `openssl s_clien
 
 ### Why does it only happen on localhost or a .dev domain?
 
-Chrome has `.dev` and `.app` on the HSTS preload list, so it always uses HTTPS for them. If your local server only speaks HTTP, the handshake fails. Use `localhost` or a `.test` domain for local work, or run local HTTPS with a [self-signed certificate](/blog/how-to-create-a-self-signed-ssl-certificate-for-nginx).
+Chrome has `.dev` and `.app` on the HSTS preload list, so it always uses HTTPS for them. If your local server only speaks HTTP, the handshake fails. Use `localhost` or a `.test` domain for local work, or run local HTTPS with a [self-signed certificate](https://greencrew.space/blog/how-to-create-a-self-signed-ssl-certificate-for-nginx).
 
 ### Does clearing the browser cache fix ERR_SSL_PROTOCOL_ERROR?
 

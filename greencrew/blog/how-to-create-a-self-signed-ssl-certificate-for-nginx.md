@@ -8,7 +8,7 @@ Description: To create a self-signed certificate for Nginx, run openssl req -x50
 
 Date: 2026-10-13
 
-**Short answer:** generate a key and certificate in one command with `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/CN=example.local" -addext "subjectAltName=DNS:example.local"`. In your Nginx server block, add `listen 443 ssl;`, `ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;`, and `ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;`, then run `sudo nginx -t && sudo systemctl reload nginx`. Traffic is now encrypted, but browsers will show a warning because no trusted authority signed the certificate. That's fine for internal tools, staging, and local development. For a public website, use a free [Let's Encrypt certificate](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) instead.
+**Short answer:** generate a key and certificate in one command with `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/CN=example.local" -addext "subjectAltName=DNS:example.local"`. In your Nginx server block, add `listen 443 ssl;`, `ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;`, and `ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;`, then run `sudo nginx -t && sudo systemctl reload nginx`. Traffic is now encrypted, but browsers will show a warning because no trusted authority signed the certificate. That's fine for internal tools, staging, and local development. For a public website, use a free [Let's Encrypt certificate](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) instead.
 
 ## What Is a Self-Signed SSL Certificate?
 
@@ -126,7 +126,7 @@ server {
 
 The second block redirects all HTTP traffic to HTTPS. If you want HTTP/2, add `http2 on;` inside the 443 server block on Nginx 1.25.1 and newer. Older versions use `listen 443 ssl http2;` instead.
 
-Avoid adding `Strict-Transport-Security` (HSTS) on a self-signed site unless every client trusts the certificate. HSTS removes the browser's "proceed anyway" option, which can lock people out. The [security headers guide](/blog/how-to-add-security-headers-in-nginx) explains HSTS in detail.
+Avoid adding `Strict-Transport-Security` (HSTS) on a self-signed site unless every client trusts the certificate. HSTS removes the browser's "proceed anyway" option, which can lock people out. The [security headers guide](https://greencrew.space/blog/how-to-add-security-headers-in-nginx) explains HSTS in detail.
 
 ## Step 4: Open the Firewall and Reload Nginx
 
@@ -135,7 +135,7 @@ sudo ufw allow 'Nginx Full'
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-New to Nginx on Ubuntu? [How to install Nginx on Ubuntu](/blog/how-to-install-nginx-on-ubuntu) covers UFW profiles and server blocks.
+New to Nginx on Ubuntu? [How to install Nginx on Ubuntu](https://greencrew.space/blog/how-to-install-nginx-on-ubuntu) covers UFW profiles and server blocks.
 
 ## Step 5: Test the HTTPS Connection
 
@@ -208,7 +208,7 @@ To renew, rerun the Step 1 command with the same paths, then reload Nginx. If yo
 
 Self-signed certificates usually protect internal dashboards, staging servers, and admin tools, which are exactly the systems nobody notices are down until someone needs them. When you later move the site to a public domain and a real certificate, keep an eye on it from the outside.
 
-[GreenCrew](https://greencrew.space) monitors your public websites and HTTP endpoints from outside your network and alerts you on Discord, Slack, or Telegram when they stop responding. It also gives you a public status page for your users. See [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) to set up alerts.
+[GreenCrew](https://greencrew.space) monitors your public websites and HTTP endpoints from outside your network and alerts you on Discord, Slack, or Telegram when they stop responding. It also gives you a public status page for your users. See [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) to set up alerts.
 
 ## Frequently Asked Questions
 
@@ -230,4 +230,4 @@ Without `-nodes`, OpenSSL encrypts the private key with a passphrase. Nginx woul
 
 ## Conclusion
 
-A self-signed certificate for Nginx is one `openssl req -x509` command, as long as you include a `subjectAltName`, plus two `ssl_certificate` lines in a `listen 443 ssl` server block. Trust it on the clients you control, or use mkcert for local development, and set a reminder before it expires. When the site goes public, switch to [Let's Encrypt with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) and let [GreenCrew](https://greencrew.space) watch its uptime.
+A self-signed certificate for Nginx is one `openssl req -x509` command, as long as you include a `subjectAltName`, plus two `ssl_certificate` lines in a `listen 443 ssl` server block. Trust it on the clients you control, or use mkcert for local development, and set a reminder before it expires. When the site goes public, switch to [Let's Encrypt with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) and let [GreenCrew](https://greencrew.space) watch its uptime.
