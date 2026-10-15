@@ -45,7 +45,7 @@ systemctl status 'php*-fpm'
 
 The version number in the socket and service name depends on your distribution. This guide uses `php8.3-fpm` (the default on Ubuntu 24.04). Replace it with whatever `ls /run/php/` shows. Debian and Ubuntu also create a version-less `php-fpm.sock` symlink through the alternatives system, which you can use if you want configs that survive PHP upgrades.
 
-If you don't have Nginx yet, follow [how to install Nginx on Ubuntu](https://greencrew.space/blog/how-to-install-nginx-on-ubuntu) first.
+If you don't have Nginx yet, follow [how to install Nginx on Ubuntu](/blog/how-to-install-nginx-on-ubuntu) first.
 
 ## Step 2: Configure the Nginx Server Block
 
@@ -272,13 +272,13 @@ Keep `fastcgi_read_timeout` and PHP's `max_execution_time` / `request_terminate_
 | `upstream sent too big header` | Large cookies or headers from the app | Raise `fastcgi_buffer_size` and `fastcgi_buffers` |
 | Changes to `php.ini` have no effect | Edited the CLI `php.ini` | Edit `/etc/php/8.3/fpm/php.ini` and reload PHP-FPM |
 
-For a deeper walkthrough of gateway errors, see [how to fix 502 Bad Gateway in Nginx](https://greencrew.space/blog/how-to-fix-502-bad-gateway-nginx).
+For a deeper walkthrough of gateway errors, see [how to fix 502 Bad Gateway in Nginx](/blog/how-to-fix-502-bad-gateway-nginx).
 
 ## Monitor Your PHP Site from the Outside
 
 Pool exhaustion rarely shows up as a clean crash. It looks like a site that's fine at 3 a.m. and returns 502s during your busiest hour. You'll only see it in the logs after the fact unless something is checking for you.
 
-[GreenCrew](https://greencrew.space) runs HTTP uptime checks against your site from outside your network. When PHP-FPM stops answering and Nginx starts returning 502 or 504, you get an alert on Discord, Slack, or Telegram, and your public status page shows customers that you're on it. Point a check at a page that actually runs PHP (not a static file), so the check fails when PHP does. Setup steps are in [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) runs HTTP uptime checks against your site from outside your network. When PHP-FPM stops answering and Nginx starts returning 502 or 504, you get an alert on Discord, Slack, or Telegram, and your public status page shows customers that you're on it. Point a check at a page that actually runs PHP (not a static file), so the check fails when PHP does. Setup steps are in [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 
@@ -300,4 +300,4 @@ Yes. Install each version's FPM package (for example from a PPA), and each gets 
 
 ## Conclusion
 
-Connecting Nginx to PHP-FPM takes one `location ~ \.php$` block with `fastcgi_pass` pointed at the right socket. Keeping it fast takes a bit more: size `pm.max_children` from real memory usage, turn on the slow log and status page, and keep Nginx and PHP timeouts in step. Put an [Nginx reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) or [proxy cache](https://greencrew.space/blog/how-to-set-up-nginx-proxy-cache) in front if you need more headroom, and let [GreenCrew](https://greencrew.space) alert you the moment PHP stops responding.
+Connecting Nginx to PHP-FPM takes one `location ~ \.php$` block with `fastcgi_pass` pointed at the right socket. Keeping it fast takes a bit more: size `pm.max_children` from real memory usage, turn on the slow log and status page, and keep Nginx and PHP timeouts in step. Put an [Nginx reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) or [proxy cache](/blog/how-to-set-up-nginx-proxy-cache) in front if you need more headroom, and let [GreenCrew](https://greencrew.space) alert you the moment PHP stops responding.

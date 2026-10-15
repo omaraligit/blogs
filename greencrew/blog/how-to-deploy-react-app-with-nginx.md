@@ -22,11 +22,11 @@ The catch: if a user refreshes on `/settings/profile` or opens it from a link, t
 | Create React App (deprecated) | `npm run build` | `build/` | `build/static/` |
 | Next.js static export (`output: 'export'`) | `npm run build` | `out/` | `out/_next/static/` |
 
-Create React App is deprecated, and the [React docs](https://react.dev/learn/creating-a-react-app) recommend a framework or a build tool like Vite for new projects. This guide uses Vite's `dist/`, but the Nginx config is the same for any of them. Only the folder names change. (A Next.js app with server-side rendering or API routes is a Node.js server, not static files. Deploy it like any [Node.js app with PM2 and Nginx](https://greencrew.space/blog/how-to-deploy-nodejs-app-with-pm2-and-nginx).)
+Create React App is deprecated, and the [React docs](https://react.dev/learn/creating-a-react-app) recommend a framework or a build tool like Vite for new projects. This guide uses Vite's `dist/`, but the Nginx config is the same for any of them. Only the folder names change. (A Next.js app with server-side rendering or API routes is a Node.js server, not static files. Deploy it like any [Node.js app with PM2 and Nginx](/blog/how-to-deploy-nodejs-app-with-pm2-and-nginx).)
 
 ## Prerequisites
 
-- Ubuntu server with Nginx installed ([how to install Nginx on Ubuntu](https://greencrew.space/blog/how-to-install-nginx-on-ubuntu))
+- Ubuntu server with Nginx installed ([how to install Nginx on Ubuntu](/blog/how-to-install-nginx-on-ubuntu))
 - Your React project building locally or in CI
 - A domain pointed at the server for HTTPS
 
@@ -123,11 +123,11 @@ curl -I http://example.com/settings/profile
 | `location /assets/` + `try_files $uri =404` | A missing JS/CSS file returns a real 404 instead of HTML (which would show up as a confusing "Unexpected token '<'" error) |
 | `expires 1y` + `immutable` | Browsers keep hashed files for a year without revalidating |
 | `Cache-Control "no-cache"` on `index.html` | Browsers check for a new `index.html` on each visit, so users get the new build right after a deploy |
-| `gzip on` | Compresses JS and CSS. See [Gzip and Brotli in Nginx](https://greencrew.space/blog/how-to-enable-gzip-and-brotli-compression-in-nginx) for Brotli |
+| `gzip on` | Compresses JS and CSS. See [Gzip and Brotli in Nginx](/blog/how-to-enable-gzip-and-brotli-compression-in-nginx) for Brotli |
 
 The caching split works because the bundler puts a content hash in each asset filename (for example `index-B4x9kQ2a.js`). A new build gets new filenames, and the fresh `index.html` points at them. The `try_files` directive is documented in the [ngx_http_core_module reference](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files).
 
-**Note on `add_header`:** Nginx only inherits `add_header` lines from the parent level when a block defines none of its own. If you set [security headers](https://greencrew.space/blog/how-to-add-security-headers-in-nginx) at the `server` level, repeat them inside any `location` that has its own `add_header`, or move them into a shared include file.
+**Note on `add_header`:** Nginx only inherits `add_header` lines from the parent level when a block defines none of its own. If you set [security headers](/blog/how-to-add-security-headers-in-nginx) at the `server` level, repeat them inside any `location` that has its own `add_header`, or move them into a shared include file.
 
 ## Step 4: Proxy API Requests to Your Backend
 
@@ -144,7 +144,7 @@ location /api/ {
 }
 ```
 
-With `proxy_pass http://127.0.0.1:3000;` (no path after the port), the backend receives the full `/api/users` path. If you write `proxy_pass http://127.0.0.1:3000/;` with a trailing slash, Nginx strips the `/api/` prefix and the backend receives `/users`. Pick the one your backend expects. More options are in [how to set up Nginx as a reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy).
+With `proxy_pass http://127.0.0.1:3000;` (no path after the port), the backend receives the full `/api/users` path. If you write `proxy_pass http://127.0.0.1:3000/;` with a trailing slash, Nginx strips the `/api/` prefix and the backend receives `/users`. Pick the one your backend expects. More options are in [how to set up Nginx as a reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy).
 
 ## Step 5: Deploy React to a Subfolder (Optional)
 
@@ -170,7 +170,7 @@ sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-Certbot edits the server block to listen on 443 and redirect HTTP to HTTPS. See [how to install Let's Encrypt SSL on Nginx with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) for renewal checks.
+Certbot edits the server block to listen on 443 and redirect HTTP to HTTPS. See [how to install Let's Encrypt SSL on Nginx with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) for renewal checks.
 
 ## Zero-Downtime Deploys with Release Folders
 
@@ -202,7 +202,7 @@ ssh user@your-server "ln -sfn $RELEASE /var/www/myapp-new && mv -Tf /var/www/mya
 
 A static site rarely "crashes," but it still breaks: a deploy uploads an `index.html` pointing at missing assets, a certificate fails to renew, or the `/api/` backend goes down while the HTML shell keeps loading fine.
 
-[GreenCrew](https://greencrew.space) runs HTTP uptime checks against your site from outside your network and sends alerts to Discord, Slack, or Telegram when something fails. It also gives you a public status page to share with users. Monitor the homepage *and* an API endpoint like `https://example.com/api/health`, since the frontend can look healthy while the backend it depends on is down. Setup steps are in [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) runs HTTP uptime checks against your site from outside your network and sends alerts to Discord, Slack, or Telegram when something fails. It also gives you a public status page to share with users. Monitor the homepage *and* an API endpoint like `https://example.com/api/health`, since the frontend can look healthy while the backend it depends on is down. Setup steps are in [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 

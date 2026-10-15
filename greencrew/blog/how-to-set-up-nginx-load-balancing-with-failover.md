@@ -82,7 +82,7 @@ server {
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-If you're new to the proxy headers above, our guide on [setting up Nginx as a reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) explains each one.
+If you're new to the proxy headers above, our guide on [setting up Nginx as a reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) explains each one.
 
 ## Step 3: Choose a Load Balancing Method
 
@@ -177,7 +177,7 @@ Then monitor the load-balanced site **and** each backend:
 | Backend 2 | `http://lb.example.com:8082/healthz` | app-2 is healthy |
 | Backup | `http://lb.example.com:8083/healthz` | Your failover target will work when needed |
 
-[GreenCrew](https://greencrew.space) runs these checks from outside your infrastructure. It alerts you on Discord, Slack, or Telegram when any backend fails, even while the public site still looks fine because Nginx is routing around the problem. That's the alert you want: fix app-2 while app-1 is still carrying the load, before you're down to zero healthy servers. Your public status page can show a "degraded performance" incident instead of a full outage. For the alert setup, see [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) runs these checks from outside your infrastructure. It alerts you on Discord, Slack, or Telegram when any backend fails, even while the public site still looks fine because Nginx is routing around the problem. That's the alert you want: fix app-2 while app-1 is still carrying the load, before you're down to zero healthy servers. Your public status page can show a "degraded performance" incident instead of a full outage. For the alert setup, see [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Step 5: See Which Backend Served Each Request
 
@@ -243,4 +243,4 @@ For HTTP workloads, yes. Nginx combines load balancing with TLS termination, cac
 
 ## Conclusion
 
-Nginx load balancing needs an `upstream` block, a method such as `least_conn`, sensible `max_fails` and `fail_timeout` values, and careful `proxy_next_upstream` retries. Its one real gap in the open source version is that it can't see an idle or backup backend failing. Close that gap by monitoring every backend from outside with [GreenCrew](https://greencrew.space), so you get an alert and a status page update while you still have healthy servers left. To harden the same entry point, add [rate limiting](https://greencrew.space/blog/how-to-set-up-rate-limiting-in-nginx) and [Gzip and Brotli compression](https://greencrew.space/blog/how-to-enable-gzip-and-brotli-compression-in-nginx).
+Nginx load balancing needs an `upstream` block, a method such as `least_conn`, sensible `max_fails` and `fail_timeout` values, and careful `proxy_next_upstream` retries. Its one real gap in the open source version is that it can't see an idle or backup backend failing. Close that gap by monitoring every backend from outside with [GreenCrew](https://greencrew.space), so you get an alert and a status page update while you still have healthy servers left. To harden the same entry point, add [rate limiting](/blog/how-to-set-up-rate-limiting-in-nginx) and [Gzip and Brotli compression](/blog/how-to-enable-gzip-and-brotli-compression-in-nginx).

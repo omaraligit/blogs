@@ -230,7 +230,7 @@ location = /healthz {
 }
 ```
 
-Rate limits protect your uptime, but a misconfigured limit can cause an outage of its own when it blocks a real traffic spike or a partner integration. [GreenCrew](https://greencrew.space) monitors your site and API endpoints from outside your network. If a new limit starts returning errors to clients, you get an alert on Discord, Slack, or Telegram right away, and your public status page keeps customers informed. For the full alerting setup, see [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+Rate limits protect your uptime, but a misconfigured limit can cause an outage of its own when it blocks a real traffic spike or a partner integration. [GreenCrew](https://greencrew.space) monitors your site and API endpoints from outside your network. If a new limit starts returning errors to clients, you get an alert on Discord, Slack, or Telegram right away, and your public status page keeps customers informed. For the full alerting setup, see [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 
@@ -252,4 +252,4 @@ Yes. The zone lives in shared memory, so every worker on the same server sees th
 
 ## Conclusion
 
-Nginx rate limiting comes down to a zone, a `limit_req` line, and the right `burst` value. Use `burst` with `nodelay` so browsers aren't punished, return 429 instead of 503, restore real client IPs behind a CDN, and try new limits in dry run mode first. Pair it with a hardened [Nginx reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) and external monitoring from [GreenCrew](https://greencrew.space) so you know right away when a limit, or an attack, affects real users.
+Nginx rate limiting comes down to a zone, a `limit_req` line, and the right `burst` value. Use `burst` with `nodelay` so browsers aren't punished, return 429 instead of 503, restore real client IPs behind a CDN, and try new limits in dry run mode first. Pair it with a hardened [Nginx reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) and external monitoring from [GreenCrew](https://greencrew.space) so you know right away when a limit, or an attack, affects real users.

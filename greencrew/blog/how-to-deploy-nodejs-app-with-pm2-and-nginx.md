@@ -29,7 +29,7 @@ PM2 is a process manager for Node.js. It isn't the only option (a plain systemd 
 ## Prerequisites
 
 - An Ubuntu server (24.04 or 22.04) with a sudo user. Don't run the app as root.
-- Nginx installed ([how to install Nginx on Ubuntu](https://greencrew.space/blog/how-to-install-nginx-on-ubuntu))
+- Nginx installed ([how to install Nginx on Ubuntu](/blog/how-to-install-nginx-on-ubuntu))
 - A domain pointed at the server if you want HTTPS
 
 ## Step 1: Install Node.js (LTS)
@@ -180,7 +180,7 @@ curl -I http://example.com
 
 `keepalive 32` together with `proxy_http_version 1.1` and an empty `Connection` header reuses connections to Node instead of opening a new one for every request. If your app uses WebSockets (Socket.IO, for example), add a location that passes the `Upgrade` and `Connection: upgrade` headers and raises `proxy_read_timeout`. The [Nginx WebSocket proxying docs](https://nginx.org/en/docs/http/websocket.html) show the exact lines.
 
-Header details, timeouts, and buffering are covered in [how to set up Nginx as a reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy).
+Header details, timeouts, and buffering are covered in [how to set up Nginx as a reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy).
 
 ### Serve Static Files with Nginx
 
@@ -201,7 +201,7 @@ sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-Certbot adds the `listen 443 ssl` lines and an HTTP → HTTPS redirect. Because Nginx sends `X-Forwarded-Proto https` and Express trusts it, `req.secure` and secure cookies work without any TLS code in Node. Full guide: [Let's Encrypt on Nginx with Certbot](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot).
+Certbot adds the `listen 443 ssl` lines and an HTTP → HTTPS redirect. Because Nginx sends `X-Forwarded-Proto https` and Express trusts it, `req.secure` and secure cookies work without any TLS code in Node. Full guide: [Let's Encrypt on Nginx with Certbot](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot).
 
 ## Step 7: Deploy Updates with Zero Downtime
 
@@ -263,19 +263,19 @@ All three work behind the same Nginx config. Only the `upstream` address changes
 | Restart loop every few minutes | `max_memory_restart` too low or a real memory leak | `pm2 monit`, raise the limit, fix the leak |
 | Sessions randomly lost | In-memory sessions with cluster mode | Use a shared store like Redis |
 
-More causes of gateway errors are in [how to fix 502 Bad Gateway in Nginx](https://greencrew.space/blog/how-to-fix-502-bad-gateway-nginx).
+More causes of gateway errors are in [how to fix 502 Bad Gateway in Nginx](/blog/how-to-fix-502-bad-gateway-nginx).
 
 ## Monitor the App from Outside
 
 PM2 restarts crashed processes, but it can't tell you when the app is running and broken: a dependency is down, every request returns 500, or a crash loop is restarting it faster than it can serve traffic. From inside the server, all of that looks "online."
 
-[GreenCrew](https://greencrew.space) checks your site over HTTP from outside your network and sends alerts to Discord, Slack, or Telegram when it fails, plus a public status page for your users. Point the check at your `/health` route through Nginx (`https://example.com/health`), so a failure in Node, Nginx, TLS, or DNS all trigger it. The setup is in [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) checks your site over HTTP from outside your network and sends alerts to Discord, Slack, or Telegram when it fails, plus a public status page for your users. Point the check at your `/health` route through Nginx (`https://example.com/health`), so a failure in Node, Nginx, TLS, or DNS all trigger it. The setup is in [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 
 ### Do I need Nginx if I use PM2?
 
-They do different jobs. PM2 keeps Node running, and Nginx handles the internet-facing work: ports 80/443, TLS, static files, compression, [rate limiting](https://greencrew.space/blog/how-to-set-up-rate-limiting-in-nginx), and buffering slow clients. You can skip Nginx for internal tools, but for a public site the pair is the standard setup.
+They do different jobs. PM2 keeps Node running, and Nginx handles the internet-facing work: ports 80/443, TLS, static files, compression, [rate limiting](/blog/how-to-set-up-rate-limiting-in-nginx), and buffering slow clients. You can skip Nginx for internal tools, but for a public site the pair is the standard setup.
 
 ### How many PM2 instances should I run?
 

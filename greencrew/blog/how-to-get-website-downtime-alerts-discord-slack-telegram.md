@@ -45,7 +45,7 @@ Before you wire up alerts, decide what should trigger them. A useful starting se
 | Keyword | Homepage must contain `Sign in` | Blank pages or error pages that return 200 |
 | API endpoint | `https://api.example.com/v1/status` | Backend outages the homepage hides |
 
-If you run Nginx, our guide on [setting up an Nginx reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) shows how to add a cheap `/healthz` endpoint for exactly this purpose.
+If you run Nginx, our guide on [setting up an Nginx reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy) shows how to add a cheap `/healthz` endpoint for exactly this purpose.
 
 ## Step 2a: Set Up Discord Downtime Alerts
 
@@ -164,7 +164,7 @@ Noisy alerts get muted, and muted alerts are no better than none. Follow these r
 - **Alert on recovery too.** A "back up" message closes the loop and tells everyone they can stand down.
 - **Route by severity.** Production outages go to `#alerts-critical` with mobile push on. Staging goes to a quieter channel.
 - **Include context.** The URL, status code, response time, and a link to the status page save a minute of investigation per incident.
-- **Monitor your certificates.** An expired certificate is downtime. See [how to install and auto-renew Let's Encrypt on Nginx](https://greencrew.space/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) to prevent it.
+- **Monitor your certificates.** An expired certificate is downtime. See [how to install and auto-renew Let's Encrypt on Nginx](/blog/how-to-install-lets-encrypt-ssl-nginx-certbot) to prevent it.
 - **Test the alert path monthly.** Webhooks get deleted, bots get removed from groups, and channels get archived. Send a test alert and confirm it arrives.
 
 ## Frequently Asked Questions

@@ -106,7 +106,7 @@ server {
 }
 ```
 
-When `proxy_pass` uses a variable that matches the name of an `upstream` group, Nginx uses that group directly, without needing a `resolver`. The [reverse proxy guide](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy) covers the other `proxy_set_header` lines you'll want.
+When `proxy_pass` uses a variable that matches the name of an `upstream` group, Nginx uses that group directly, without needing a `resolver`. The [reverse proxy guide](/blog/how-to-set-up-nginx-reverse-proxy) covers the other `proxy_set_header` lines you'll want.
 
 ### Option C: One Backend, Variant as a Header
 
@@ -249,7 +249,7 @@ For country targeting, use a GeoIP2 database (such as MaxMind's GeoLite2) with t
 
 ### Don't Break Caching
 
-If you use [proxy_cache](https://greencrew.space/blog/how-to-set-up-nginx-proxy-cache) or a CDN, variant A's cached HTML could be served to variant B. Add the variant to the cache key:
+If you use [proxy_cache](/blog/how-to-set-up-nginx-proxy-cache) or a CDN, variant A's cached HTML could be served to variant B. Add the variant to the cache key:
 
 ```nginx
 proxy_cache_key "$scheme$request_method$host$request_uri$ab_variant";
@@ -285,7 +285,7 @@ Small samples produce misleading winners. Decide the goal metric and the sample 
 | Split is far from 50/50 | Low traffic, or many users share one IP with an IP-only key | Add `$http_user_agent` to the key, wait for more traffic |
 | Everyone gets the same variant | `split_clients` key is empty or constant (for example `$remote_addr` behind a load balancer) | Restore the real client IP with the realip module |
 | Variant B shows variant A's page | Cache key doesn't include the variant | Add `$ab_variant` to `proxy_cache_key` |
-| `no live upstreams` or 502 on one variant | That variant's backend is down | Check the upstream; see [fixing 502 Bad Gateway](https://greencrew.space/blog/how-to-fix-502-bad-gateway-nginx) |
+| `no live upstreams` or 502 on one variant | That variant's backend is down | Check the upstream; see [fixing 502 Bad Gateway](/blog/how-to-fix-502-bad-gateway-nginx) |
 | Cookie never set | `add_header` overridden in a `location` that has its own `add_header` | Repeat the header in that location, and use `always` |
 | `unknown "ab_variant" variable` | `map` or `split_clients` not in the `http` block | Move them to `http` context |
 
@@ -293,7 +293,7 @@ Small samples produce misleading winners. Decide the goal metric and the sample 
 
 An A/B test doubles the number of things that can break. If variant B's backend crashes, half your visitors get errors while variant A looks perfectly healthy, and your conversion numbers for B drop for the wrong reason.
 
-Monitor each variant on its own. With the cookie pattern, you can run a dedicated check for each version, or monitor the upstream ports directly. [GreenCrew](https://greencrew.space) checks your URLs from outside your network and alerts you on Discord, Slack, or Telegram the moment one stops responding, so a broken variant doesn't silently ruin an experiment. See [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) to set it up.
+Monitor each variant on its own. With the cookie pattern, you can run a dedicated check for each version, or monitor the upstream ports directly. [GreenCrew](https://greencrew.space) checks your URLs from outside your network and alerts you on Discord, Slack, or Telegram the moment one stops responding, so a broken variant doesn't silently ruin an experiment. See [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram) to set it up.
 
 ## Frequently Asked Questions
 
@@ -307,7 +307,7 @@ Hash a stable value in `split_clients`, then save the result in a cookie and rea
 
 ### Is split_clients good for canary releases?
 
-Yes. Send a small share of traffic to the new version, for example `5% "b"; * "a";`, with `proxy_pass http://app_$ab_variant`. Watch error rates for the new upstream, then increase the percentage. For weighted routing without user stickiness, the `weight` parameter in an `upstream` block is another option, covered in [Nginx load balancing](https://greencrew.space/blog/how-to-set-up-nginx-load-balancing-with-failover).
+Yes. Send a small share of traffic to the new version, for example `5% "b"; * "a";`, with `proxy_pass http://app_$ab_variant`. Watch error rates for the new upstream, then increase the percentage. For weighted routing without user stickiness, the `weight` parameter in an `upstream` block is another option, covered in [Nginx load balancing](/blog/how-to-set-up-nginx-load-balancing-with-failover).
 
 ### How do I end an A/B test in Nginx?
 

@@ -12,7 +12,7 @@ Date: 2026-10-08
 
 ## What Is Nginx proxy_cache?
 
-When Nginx works as a [reverse proxy](https://greencrew.space/blog/how-to-set-up-nginx-reverse-proxy), every request normally goes through to your application. With `proxy_cache`, Nginx saves the backend's response to disk and serves later requests for the same URL itself, without touching the app until the cached copy expires.
+When Nginx works as a [reverse proxy](/blog/how-to-set-up-nginx-reverse-proxy), every request normally goes through to your application. With `proxy_cache`, Nginx saves the backend's response to disk and serves later requests for the same URL itself, without touching the app until the cached copy expires.
 
 | Benefit | What happens | Why it matters |
 | --- | --- | --- |
@@ -220,7 +220,7 @@ location / {
 | `proxy_cache_lock on` | Only one request goes to the backend for a missing item |
 | `proxy_cache_revalidate on` | Use `If-Modified-Since` / `If-None-Match` to refresh cheaply |
 
-Stale content is only served for URLs that are already in the cache. Pages nobody visited recently will still return a 502. To fix those errors at the source, see [how to fix 502 Bad Gateway in Nginx](https://greencrew.space/blog/how-to-fix-502-bad-gateway-nginx).
+Stale content is only served for URLs that are already in the cache. Pages nobody visited recently will still return a 502. To fix those errors at the source, see [how to fix 502 Bad Gateway in Nginx](/blog/how-to-fix-502-bad-gateway-nginx).
 
 ## Step 7: Microcaching for Dynamic Sites
 
@@ -240,7 +240,7 @@ location / {
 }
 ```
 
-Visitors see content that's at most a second or two old, and a traffic spike hits Nginx instead of your database. Microcaching pairs well with [Nginx load balancing](https://greencrew.space/blog/how-to-set-up-nginx-load-balancing-with-failover) and [rate limiting](https://greencrew.space/blog/how-to-set-up-rate-limiting-in-nginx) for handling bursts.
+Visitors see content that's at most a second or two old, and a traffic spike hits Nginx instead of your database. Microcaching pairs well with [Nginx load balancing](/blog/how-to-set-up-nginx-load-balancing-with-failover) and [rate limiting](/blog/how-to-set-up-rate-limiting-in-nginx) for handling bursts.
 
 ## Step 8: Clear (Purge) the Nginx Cache
 
@@ -307,7 +307,7 @@ location = /healthz {
 }
 ```
 
-[GreenCrew](https://greencrew.space) checks these URLs from outside your network and alerts you on Discord, Slack, or Telegram as soon as one fails, even while the cache is still keeping the homepage up. A public status page lets you tell users which parts of the site are affected. To set up the chat side, see [how to get website downtime alerts on Discord, Slack, and Telegram](https://greencrew.space/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
+[GreenCrew](https://greencrew.space) checks these URLs from outside your network and alerts you on Discord, Slack, or Telegram as soon as one fails, even while the cache is still keeping the homepage up. A public status page lets you tell users which parts of the site are affected. To set up the chat side, see [how to get website downtime alerts on Discord, Slack, and Telegram](/blog/how-to-get-website-downtime-alerts-discord-slack-telegram).
 
 ## Frequently Asked Questions
 
