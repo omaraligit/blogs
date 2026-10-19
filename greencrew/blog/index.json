@@ -64,6 +64,55 @@
     "date": "2026-10-13"
   },
   {
+    "slug": "how-to-deploy-django-with-postgres-gunicorn-and-nginx",
+    "filename": "how-to-deploy-django-with-postgres-gunicorn-and-nginx.md",
+    "title": "How to Deploy Django with PostgreSQL, Gunicorn, and Nginx on Ubuntu (systemd Socket and Static Files)",
+    "description": "To deploy Django in production, run it with Gunicorn under a systemd socket at /run/gunicorn.sock, point Nginx at it with proxy_pass http://unix:/run/gunicorn.sock;, serve collected static files with an alias location, and store data in PostgreSQL. This guide covers the Postgres database, virtualenv, production settings, collectstatic, systemd units, HTTPS, and fixing 502, 400, and CSRF errors.",
+    "tags": [
+      "Nginx",
+      "Django",
+      "Python",
+      "PostgreSQL",
+      "Gunicorn",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-19"
+  },
+  {
+    "slug": "how-to-deploy-laravel-with-nginx-on-ubuntu",
+    "filename": "how-to-deploy-laravel-with-nginx-on-ubuntu.md",
+    "title": "How to Deploy Laravel with Nginx on Ubuntu (Server Block, Permissions, Queues, and Scheduler)",
+    "description": "To deploy Laravel with Nginx, set the server block's root to your app's public/ directory, add try_files $uri $uri/ /index.php?$query_string; to the location / block, pass index.php to PHP-FPM, and give www-data write access to storage/ and bootstrap/cache. This guide covers PHP extensions, Composer, the .env file, caching, migrations, queue workers, the scheduler, HTTPS, and common Laravel 404/500 errors.",
+    "tags": [
+      "Nginx",
+      "Laravel",
+      "PHP",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-19"
+  },
+  {
+    "slug": "how-to-deploy-nestjs-app-with-nginx-on-ubuntu",
+    "filename": "how-to-deploy-nestjs-app-with-nginx-on-ubuntu.md",
+    "title": "How to Deploy a NestJS Application with Nginx on Ubuntu (Build, PM2, Health Checks, and HTTPS)",
+    "description": "To deploy a NestJS app, run npm run build to compile TypeScript into dist/, start dist/main.js with PM2 on 127.0.0.1:3000, and put Nginx in front with proxy_pass http://127.0.0.1:3000. This guide covers main.ts production settings (trust proxy, shutdown hooks, global prefix), environment config, a Terminus health check, WebSocket gateways, HTTPS, and common NestJS deployment errors.",
+    "tags": [
+      "Nginx",
+      "NestJS",
+      "Node.js",
+      "TypeScript",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-19"
+  },
+  {
     "slug": "how-to-deploy-nodejs-app-with-pm2-and-nginx",
     "filename": "how-to-deploy-nodejs-app-with-pm2-and-nginx.md",
     "title": "How to Deploy a Node.js App in Production with PM2 and Nginx (Ubuntu, Startup Script, and Zero-Downtime Reloads)",
@@ -208,6 +257,22 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-13"
+  },
+  {
+    "slug": "how-to-self-host-n8n-with-docker-and-nginx",
+    "filename": "how-to-self-host-n8n-with-docker-and-nginx.md",
+    "title": "How to Self-Host n8n with Docker and Nginx (Docker Compose, WebSockets, SSL, and WEBHOOK_URL)",
+    "description": "To self-host n8n, run the docker.n8n.io/n8nio/n8n image with Docker Compose bound to 127.0.0.1:5678, set N8N_HOST, N8N_PROTOCOL=https, and WEBHOOK_URL, then put Nginx in front with proxy_pass http://127.0.0.1:5678 plus WebSocket Upgrade headers and a Let's Encrypt certificate. This guide covers the compose file, PostgreSQL, the encryption key, backups, updates, and fixing secure cookie, WebSocket, and webhook URL errors.",
+    "tags": [
+      "Nginx",
+      "n8n",
+      "Docker",
+      "Automation",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-19"
   },
   {
     "slug": "how-to-set-up-nginx-load-balancing-with-failover",
