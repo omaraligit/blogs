@@ -210,6 +210,40 @@
     "date": "2026-09-30"
   },
   {
+    "slug": "how-to-install-and-secure-phpmyadmin-with-nginx-on-ubuntu",
+    "filename": "how-to-install-and-secure-phpmyadmin-with-nginx-on-ubuntu.md",
+    "title": "How to Install and Secure phpMyAdmin with Nginx on Ubuntu (Custom URL, Basic Auth, and No Root Login)",
+    "description": "To run phpMyAdmin with Nginx on Ubuntu, install it with sudo apt install phpmyadmin, choose no web server when the installer asks for Apache or lighttpd, and serve /usr/share/phpmyadmin from an Nginx location block on a hard-to-guess path that passes PHP to PHP-FPM. Then lock it down with HTTPS, HTTP basic auth, an IP allowlist, and a dedicated MySQL user instead of root. This guide covers the full config, every security layer, and fixes for common phpMyAdmin errors.",
+    "tags": [
+      "Nginx",
+      "phpMyAdmin",
+      "MySQL",
+      "PHP",
+      "Security",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-23"
+  },
+  {
+    "slug": "how-to-install-and-use-composer-on-ubuntu",
+    "filename": "how-to-install-and-use-composer-on-ubuntu.md",
+    "title": "How to Install and Use Composer on Ubuntu (Verified Global Install, composer.json, and Production Deploys)",
+    "description": "To install Composer on Ubuntu, install php-cli and unzip, download the installer from getcomposer.org, verify its SHA-384 hash against composer.github.io/installer.sig, and run php composer-setup.php --install-dir=/usr/local/bin --filename=composer so the composer command works globally. This guide covers the verified install script, require vs install vs update, composer.lock, autoloading, version constraints, production deploys with --no-dev, and common Composer errors.",
+    "tags": [
+      "PHP",
+      "Composer",
+      "Ubuntu",
+      "Linux",
+      "Nginx",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-23"
+  },
+  {
     "slug": "how-to-install-lemp-stack-on-ubuntu",
     "filename": "how-to-install-lemp-stack-on-ubuntu.md",
     "title": "How to Install a LEMP Stack on Ubuntu (Nginx, MySQL, and PHP-FPM Step by Step)",
