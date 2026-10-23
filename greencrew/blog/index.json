@@ -243,6 +243,23 @@
     "date": "2026-09-30"
   },
   {
+    "slug": "how-to-install-multiple-php-versions-on-ubuntu",
+    "filename": "how-to-install-multiple-php-versions-on-ubuntu.md",
+    "title": "How to Install PHP on Ubuntu and Run Multiple Versions (ondrej/php PPA, update-alternatives, and PHP-FPM per Site)",
+    "description": "To install a specific PHP version on Ubuntu, add the ondrej/php PPA with sudo add-apt-repository ppa:ondrej/php, then install versioned packages like php8.4-fpm and php8.2-fpm side by side. Switch the CLI version with sudo update-alternatives --config php, and point each Nginx site at its own socket, such as fastcgi_pass unix:/run/php/php8.2-fpm.sock. This guide covers extensions, php.ini locations, Composer, upgrading a site, and common errors.",
+    "tags": [
+      "Nginx",
+      "PHP",
+      "PHP-FPM",
+      "Ubuntu",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-23"
+  },
+  {
     "slug": "how-to-install-nginx-on-ubuntu",
     "filename": "how-to-install-nginx-on-ubuntu.md",
     "title": "How to Install Nginx on Ubuntu (apt install nginx, UFW Firewall, and Your First Server Block)",
@@ -273,6 +290,23 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-19"
+  },
+  {
+    "slug": "how-to-set-up-laravel-nginx-mysql-with-docker-compose",
+    "filename": "how-to-set-up-laravel-nginx-mysql-with-docker-compose.md",
+    "title": "How to Set Up Laravel, Nginx, and MySQL with Docker Compose (Dockerfile, nginx.conf, and .env)",
+    "description": "To run Laravel with Docker Compose, define three services: app (a php:8.3-fpm image with pdo_mysql), nginx (with fastcgi_pass app:9000 and root /var/www/html/public), and mysql (with a named volume), then set DB_HOST=mysql in Laravel's .env. This guide gives you the full docker-compose.yml, Dockerfile, and Nginx config, plus migrations, queue workers, the scheduler, production notes, and fixes for common errors.",
+    "tags": [
+      "Nginx",
+      "Laravel",
+      "Docker",
+      "MySQL",
+      "PHP",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-23"
   },
   {
     "slug": "how-to-set-up-nginx-load-balancing-with-failover",
