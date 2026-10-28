@@ -32,6 +32,22 @@
     "date": "2026-10-08"
   },
   {
+    "slug": "how-to-build-a-nodejs-application-with-docker",
+    "filename": "how-to-build-a-nodejs-application-with-docker.md",
+    "title": "How to Build a Node.js Application with Docker (Dockerfile, .dockerignore, and Docker Compose)",
+    "description": "To build a Node.js application with Docker, write a Dockerfile that starts FROM node:24-alpine, copies package*.json, runs npm ci --omit=dev, copies your code, switches to USER node, and ends with CMD [\"node\", \"server.js\"], then run docker build -t myapp . and docker run -p 3000:3000 myapp. This guide covers .dockerignore, multi-stage builds, health checks, graceful shutdown, Docker Compose with PostgreSQL, and putting Nginx in front.",
+    "tags": [
+      "Node.js",
+      "Docker",
+      "Docker Compose",
+      "Nginx",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
+  },
+  {
     "slug": "how-to-configure-php-fpm-with-nginx",
     "filename": "how-to-configure-php-fpm-with-nginx.md",
     "title": "How to Configure PHP-FPM with Nginx (fastcgi_pass, Unix Socket, and Pool Tuning)",
@@ -310,6 +326,23 @@
     "date": "2026-10-13"
   },
   {
+    "slug": "how-to-install-nodejs-on-ubuntu",
+    "filename": "how-to-install-nodejs-on-ubuntu.md",
+    "title": "How to Install Node.js on Ubuntu (apt, NodeSource, and nvm Compared)",
+    "description": "To install a current LTS version of Node.js on Ubuntu, add the NodeSource repository with curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash - and run sudo apt install -y nodejs, or install nvm and run nvm install --lts for per-user version switching. This guide compares apt, NodeSource, and nvm, then covers npm global packages, build tools, switching versions, and uninstalling Node.js.",
+    "tags": [
+      "Node.js",
+      "Ubuntu",
+      "npm",
+      "nvm",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
+  },
+  {
     "slug": "how-to-install-openlitespeed-mariadb-php-lomp-stack-on-ubuntu",
     "filename": "how-to-install-openlitespeed-mariadb-php-lomp-stack-on-ubuntu.md",
     "title": "How to Install a LOMP Stack on Ubuntu (OpenLiteSpeed, MariaDB, and PHP Step by Step)",
@@ -320,6 +353,40 @@
       "PHP",
       "LOMP",
       "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
+  },
+  {
+    "slug": "how-to-install-strapi-for-production-on-ubuntu",
+    "filename": "how-to-install-strapi-for-production-on-ubuntu.md",
+    "title": "How to Install Strapi for Production on Ubuntu (PostgreSQL, PM2, Nginx, and HTTPS)",
+    "description": "To run Strapi in production on Ubuntu, create the project with npx create-strapi@latest, point it at PostgreSQL through DATABASE_CLIENT=postgres in .env, build the admin panel with NODE_ENV=production npm run build, start it with PM2, and proxy a domain to port 1337 with Nginx. This guide covers each step, plus HTTPS with Certbot, upload limits, the first admin account, updates, and troubleshooting.",
+    "tags": [
+      "Strapi",
+      "Node.js",
+      "PostgreSQL",
+      "Nginx",
+      "PM2",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
+  },
+  {
+    "slug": "how-to-scale-nodejs-applications-with-clustering",
+    "filename": "how-to-scale-nodejs-applications-with-clustering.md",
+    "title": "How to Scale Node.js Applications with Clustering (cluster Module, Load Testing, and Zero-Downtime Restarts)",
+    "description": "To scale a Node.js application across CPU cores, use the built-in node:cluster module: in the primary process call cluster.fork() once per os.availableParallelism(), and let each worker run your HTTP server on the same port. This guide covers a complete cluster script, restarting crashed workers, load testing with autocannon, zero-downtime rolling restarts, shared state with Redis, sticky sessions, and PM2 or Nginx alternatives.",
+    "tags": [
+      "Node.js",
+      "Cluster",
+      "Performance",
+      "Nginx",
+      "Scaling",
       "DevOps"
     ],
     "author": "greencrew",
@@ -439,5 +506,38 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-07"
+  },
+  {
+    "slug": "how-to-use-multithreading-in-nodejs-with-worker-threads",
+    "filename": "how-to-use-multithreading-in-nodejs-with-worker-threads.md",
+    "title": "How to Use Multithreading in Node.js (worker_threads, Worker Pools, and When to Use Them)",
+    "description": "To use multithreading in Node.js, import Worker from node:worker_threads, move CPU-heavy code into a separate worker file, and exchange data with postMessage and the message event so the main event loop stays free. This guide covers a blocking-vs-worker example, a promise wrapper, worker pools with Piscina, sharing memory, the libuv thread pool, and when to use cluster instead.",
+    "tags": [
+      "Node.js",
+      "worker_threads",
+      "Performance",
+      "JavaScript",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
+  },
+  {
+    "slug": "how-to-use-sequelize-with-nodejs-and-mysql",
+    "filename": "how-to-use-sequelize-with-nodejs-and-mysql.md",
+    "title": "How to Use Sequelize with Node.js and MySQL (Models, Migrations, Associations, and Queries)",
+    "description": "To use Sequelize with Node.js and MySQL, run npm install sequelize mysql2, create a connection with new Sequelize(database, user, password, { host: 'localhost', dialect: 'mysql' }), check it with sequelize.authenticate(), and define models with sequelize.define(). This guide covers creating the MySQL user, sequelize-cli migrations and seeders, CRUD queries, operators, associations, transactions, and common connection errors.",
+    "tags": [
+      "Node.js",
+      "Sequelize",
+      "MySQL",
+      "ORM",
+      "JavaScript",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
   }
 ]
