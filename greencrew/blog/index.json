@@ -310,6 +310,23 @@
     "date": "2026-10-13"
   },
   {
+    "slug": "how-to-install-openlitespeed-mariadb-php-lomp-stack-on-ubuntu",
+    "filename": "how-to-install-openlitespeed-mariadb-php-lomp-stack-on-ubuntu.md",
+    "title": "How to Install a LOMP Stack on Ubuntu (OpenLiteSpeed, MariaDB, and PHP Step by Step)",
+    "description": "To install a LOMP stack on Ubuntu, add the LiteSpeed repository with wget -O - https://repo.litespeed.sh | sudo bash, run sudo apt install openlitespeed lsphp83 lsphp83-mysql mariadb-server, set the WebAdmin password with admpass.sh, and point the lsphp external app at the PHP version you installed. This guide covers every step, including virtual hosts, port 80, a MariaDB user, Let's Encrypt SSL, and troubleshooting.",
+    "tags": [
+      "OpenLiteSpeed",
+      "MariaDB",
+      "PHP",
+      "LOMP",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
+  },
+  {
     "slug": "how-to-self-host-n8n-with-docker-and-nginx",
     "filename": "how-to-self-host-n8n-with-docker-and-nginx.md",
     "title": "How to Self-Host n8n with Docker and Nginx (Docker Compose, WebSockets, SSL, and WEBHOOK_URL)",
@@ -324,6 +341,23 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-19"
+  },
+  {
+    "slug": "how-to-set-up-a-local-php-development-environment-on-ubuntu",
+    "filename": "how-to-set-up-a-local-php-development-environment-on-ubuntu.md",
+    "title": "How to Set Up a Local PHP Development Environment on Ubuntu (php -S Built-In Server, Xdebug, and Composer)",
+    "description": "To set up a local PHP development environment on Ubuntu, run sudo apt install php-cli php-mbstring php-xml php-curl php-zip php-sqlite3 unzip, enable development error settings, and start a project with php -S localhost:8000 -t public. This guide covers the built-in web server, Xdebug step debugging in VS Code, Composer, a local database, and when to switch to Nginx with PHP-FPM.",
+    "tags": [
+      "PHP",
+      "Ubuntu",
+      "Xdebug",
+      "Composer",
+      "Nginx",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-10-28"
   },
   {
     "slug": "how-to-set-up-laravel-nginx-mysql-with-docker-compose",
