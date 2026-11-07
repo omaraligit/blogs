@@ -80,6 +80,22 @@
     "date": "2026-10-13"
   },
   {
+    "slug": "how-to-deploy-an-express-app-on-kubernetes",
+    "filename": "how-to-deploy-an-express-app-on-kubernetes.md",
+    "title": "How to Deploy an Express App on Kubernetes (Deployment, Service, Ingress, and Probes)",
+    "description": "To deploy an Express app on Kubernetes, build and push a Docker image, then run kubectl apply -f with a Deployment (replicas, resource limits, readiness and liveness probes on /health), a ClusterIP Service on port 80 → 3000, and an Ingress that routes your domain to that Service. This guide covers the Dockerfile, registry pull secrets, ConfigMaps and Secrets, rolling updates, kubectl rollout undo, graceful shutdown with preStop, and troubleshooting.",
+    "tags": [
+      "Kubernetes",
+      "Node.js",
+      "Express",
+      "Docker",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-11-06"
+  },
+  {
     "slug": "how-to-deploy-django-with-postgres-gunicorn-and-nginx",
     "filename": "how-to-deploy-django-with-postgres-gunicorn-and-nginx.md",
     "title": "How to Deploy Django with PostgreSQL, Gunicorn, and Nginx on Ubuntu (systemd Socket and Static Files)",
@@ -143,6 +159,22 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-15"
+  },
+  {
+    "slug": "how-to-deploy-postgresql-on-kubernetes",
+    "filename": "how-to-deploy-postgresql-on-kubernetes.md",
+    "title": "How to Deploy PostgreSQL on Kubernetes (StatefulSet, Persistent Volume, Secret, and Backups)",
+    "description": "To deploy PostgreSQL on Kubernetes, store the password in a Secret, run the official postgres image in a StatefulSet with a volumeClaimTemplate so data lives on a PersistentVolume, set PGDATA to a subdirectory of the mount, and expose it with a headless Service, then apply everything with kubectl apply -f. This guide covers probes with pg_isready, resource limits, connecting with kubectl exec and port-forward, pg_dump backup CronJobs, restores, upgrades, and when to use Helm, an operator, or a managed database instead.",
+    "tags": [
+      "Kubernetes",
+      "PostgreSQL",
+      "StatefulSet",
+      "Databases",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-11-06"
   },
   {
     "slug": "how-to-deploy-react-app-with-nginx",
@@ -377,6 +409,22 @@
     "date": "2026-10-28"
   },
   {
+    "slug": "how-to-scale-nodejs-and-mongodb-on-kubernetes-with-helm",
+    "filename": "how-to-scale-nodejs-and-mongodb-on-kubernetes-with-helm.md",
+    "title": "How to Scale a Node.js App with MongoDB on Kubernetes Using Helm (Replica Set, Custom Chart, and HPA)",
+    "description": "To scale a Node.js app with MongoDB on Kubernetes, install MongoDB as a replica set with Helm (architecture=replicaset, replicaCount=3), point your app at the headless-service connection string stored in a Secret, package the app as its own chart with helm create, deploy it with helm upgrade --install, and scale with replicaCount or a HorizontalPodAutoscaler. This guide covers values.yaml, the connection string, templating, autoscaling, rollbacks, and troubleshooting.",
+    "tags": [
+      "Kubernetes",
+      "Helm",
+      "Node.js",
+      "MongoDB",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-11-06"
+  },
+  {
     "slug": "how-to-scale-nodejs-applications-with-clustering",
     "filename": "how-to-scale-nodejs-applications-with-clustering.md",
     "title": "How to Scale Node.js Applications with Clustering (cluster Module, Load Testing, and Zero-Downtime Restarts)",
@@ -392,6 +440,23 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-28"
+  },
+  {
+    "slug": "how-to-secure-kubernetes-with-cert-manager-traefik-and-lets-encrypt",
+    "filename": "how-to-secure-kubernetes-with-cert-manager-traefik-and-lets-encrypt.md",
+    "title": "How to Secure Kubernetes with cert-manager, Traefik, and Let's Encrypt (Automatic HTTPS for Ingress)",
+    "description": "To get automatic HTTPS in Kubernetes, install Traefik as your ingress controller, install cert-manager with helm install cert-manager jetstack/cert-manager --set crds.enabled=true, create a Let's Encrypt ClusterIssuer that uses the HTTP-01 solver with ingressClassName: traefik, then add the cert-manager.io/cluster-issuer annotation and a tls block to your Ingress. This guide covers staging vs production issuers, IngressRoute with a Certificate resource, HTTP to HTTPS redirects, DNS-01 wildcard certificates, and debugging failed challenges.",
+    "tags": [
+      "Kubernetes",
+      "cert-manager",
+      "Traefik",
+      "Let's Encrypt",
+      "TLS",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-11-06"
   },
   {
     "slug": "how-to-self-host-n8n-with-docker-and-nginx",
@@ -425,6 +490,22 @@
     "author": "greencrew",
     "authorUrl": "https://greencrew.space/blog",
     "date": "2026-10-28"
+  },
+  {
+    "slug": "how-to-set-up-a-microk8s-kubernetes-cluster-on-ubuntu",
+    "filename": "how-to-set-up-a-microk8s-kubernetes-cluster-on-ubuntu.md",
+    "title": "How to Set Up a MicroK8s Kubernetes Cluster on Ubuntu (snap install, add-node, Addons, and HA)",
+    "description": "To set up a MicroK8s Kubernetes cluster on Ubuntu, run sudo snap install microk8s --classic on every node, add your user to the microk8s group, run microk8s add-node on the first node, and paste the printed microk8s join command on each other node. This guide covers addons (dns, hostpath-storage, ingress, metallb), firewall ports, kubectl access with microk8s config, a test deployment, upgrades, removing nodes, and high availability with 3+ nodes.",
+    "tags": [
+      "Kubernetes",
+      "MicroK8s",
+      "Ubuntu",
+      "Linux",
+      "DevOps"
+    ],
+    "author": "greencrew",
+    "authorUrl": "https://greencrew.space/blog",
+    "date": "2026-11-06"
   },
   {
     "slug": "how-to-set-up-laravel-nginx-mysql-with-docker-compose",
